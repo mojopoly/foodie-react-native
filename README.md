@@ -19,6 +19,6 @@
 <img src="/assets/foodie-search.png" height="400" width="200" />
 </div>
 <div style="display:flex; justify-content:center;">
-<img src="/assets/ezgif.com-video-to-gif.gif" />
+<img src="/assets/foodie-gif.gif" />
 </div>
 
