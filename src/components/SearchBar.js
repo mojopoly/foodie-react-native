@@ -1,27 +1,35 @@
 import React from 'react';
 import {View, TextInput, StyleSheet} from 'react-native';
-import {Feather} from '@expo/vector-icons';
+import {Feather, MaterialCommunityIcons} from '@expo/vector-icons';
 
-const SearchBar = ({term, onTermChange, onTermSubmit}) => {
+const SearchBar = ({term, onTermChange, onSubmit, city, onCityChange}) => {
   return (
-    <View style={styles.backgroundStyle}>
-      <Feather name="search" style={styles.iconStyle} />
-      <TextInput
-        autoCapitalize="none"
-        autoCorrect={false}
-        style={styles.inputStyle}
-        placeholder="What do you fancy eating?"
-        value={term}
-        onChangeText={onTermChange}
-        onEndEditing={onTermSubmit}
-      />
+    <View>
+      <View style={styles.backgroundStyle}>
+        <Feather name="search" style={styles.iconStyle} />
+        <TextInput
+          autoCapitalize="none"
+          autoCorrect={false}
+          style={styles.inputStyle}
+          placeholder="What do you fancy eating?"
+          value={term}
+          onChangeText={onTermChange}
+        />
+      </View>
+      <View style={styles.backgroundStyle}>
+        <MaterialCommunityIcons name="city" style={styles.iconStyle} />
+        <TextInput
+          autoCapitalize="words"
+          style={styles.inputStyle}
+          placeholder="Type in a city in North America"
+          value={city}
+          onChangeText={onCityChange}
+          onEndEditing={onSubmit}
+        />
+      </View>
     </View>
   );
 };
-
-// below are long simplified version
-// onChangeText={newTerm => onTermChange (newTerm)}
-// onEndEditing={() => onTermSubmit ()
 
 const styles = StyleSheet.create({
   backgroundStyle: {

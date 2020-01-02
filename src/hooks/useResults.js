@@ -6,13 +6,13 @@ export default () => {
   const [errorMessage, setErrorMessage] = useState(['']);
   //console.log(term);
 
-  const searchApi = async searchTerm => {
+  const searchApi = async (searchTerm, city) => {
     try {
       const response = await yelp.get('/search', {
         params: {
           limit: 50,
           term: searchTerm,
-          location: 'toronto',
+          location: city,
         },
       });
       setResults(response.data.businesses);
@@ -23,7 +23,7 @@ export default () => {
   };
 
   useEffect(() => {
-    searchApi('japanese');
+    searchApi('japanese', 'toronto');
   }, []);
 
   return [searchApi, results, errorMessage];

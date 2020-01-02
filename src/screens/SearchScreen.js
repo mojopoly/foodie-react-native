@@ -7,6 +7,7 @@ import ResultsList from '../components/ResultsList';
 const SearchScreen = () => {
   //console.log(props);
   const [term, setTerm] = useState('');
+  const [city, setCity] = useState('');
   const [searchApi, results, errorMessage] = useResults();
 
   const filterResultsByPrice = price => {
@@ -21,7 +22,9 @@ const SearchScreen = () => {
         <SearchBar
           term={term}
           onTermChange={setTerm}
-          onTermSubmit={() => searchApi(term)}
+          city={city}
+          onCityChange={setCity}
+          onSubmit={() => searchApi(term, city)}
         />
         {errorMessage ? <Text>{errorMessage}</Text> : null}
 
@@ -39,8 +42,6 @@ const SearchScreen = () => {
     </ScrollView>
   );
 };
-//below is the simplified version
-// onTermChange={newTerm => setTerm(newTerm)}
 
 const styles = StyleSheet.create({});
 
